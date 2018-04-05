@@ -17,15 +17,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var clockView: UIView!
     
     var timer = Timer()
-    var previousDate: Date?
-    var centerX: CGFloat?
-    var centerY: CGFloat?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        centerX = view.frame.width / 2
-        centerY = view.frame.height / 2
         secondsView.layer.anchorPoint = CGPoint(x: 0, y: 1)
         minuteView.layer.anchorPoint = CGPoint(x: 0, y: 1)
         hourView.layer.anchorPoint = CGPoint(x:0, y: 1)
@@ -44,13 +39,14 @@ class ViewController: UIViewController {
         let minute = Double(calendar.component(.minute, from: date))
         let second = Double(calendar.component(.second, from: date))
         print(hour, minute, second)
-        updateView(time: hour*60.0*60.0+minute*60.0+second)
+        updateView(time: hour*60.0*60.0+minute*60.0+second, minutes: minute*60.0+second)
     }
     
-    func updateView(time: Double) {
+    func updateView(time: Double, minutes: Double) {
 
+        print(minutes/60)
         secondsView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*Double(Int(time)%60)/60.0))
-        minuteView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*Double(Int(time/60.0)%60)/60.0))
+        minuteView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*(minutes/60)/60.0))
         hourView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*Double(time/3600.0)/12.0))
     }
 }
