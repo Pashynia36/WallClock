@@ -38,16 +38,16 @@ class ViewController: UIViewController {
         let hour = Double(calendar.component(.hour, from: date))
         let minute = Double(calendar.component(.minute, from: date))
         let second = Double(calendar.component(.second, from: date))
-        print(hour, minute, second)
-        updateView(time: hour*60.0*60.0+minute*60.0+second, minutes: minute*60.0+second)
+        updateView(hours: hour, minutes: minute, seconds: second)
     }
     
-    func updateView(time: Double, minutes: Double) {
+    func updateView(hours: Double, minutes: Double, seconds: Double) {
 
-        print(minutes/60)
-        secondsView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*Double(Int(time)%60)/60.0))
-        minuteView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*(minutes/60)/60.0))
-        hourView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*Double(time/3600.0)/12.0))
+        let minute = minutes + seconds/60
+        let hour = hours + minutes/60
+        secondsView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*seconds/60.0))
+        minuteView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*minute/60.0))
+        hourView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*hour/12.0))
     }
 }
 
