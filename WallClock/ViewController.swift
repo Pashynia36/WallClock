@@ -9,25 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
-    @IBOutlet weak var minuteView: UIView!
-    @IBOutlet weak var hourView: UIView!
-    @IBOutlet weak var secondsView: UIView!
-    @IBOutlet weak var clockView: UIView!
-    
+    @IBOutlet weak var clockView2: ClockUIView!
     var timer = Timer()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        secondsView.layer.anchorPoint = CGPoint(x: 0, y: 1)
-        minuteView.layer.anchorPoint = CGPoint(x: 0, y: 1)
-        hourView.layer.anchorPoint = CGPoint(x:0, y: 1)
         runTimer()
     }
     
     func runTimer() {
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.checkTime)), userInfo: nil, repeats: true)
     }
     
@@ -42,12 +35,13 @@ class ViewController: UIViewController {
     }
     
     func updateView(hours: Double, minutes: Double, seconds: Double) {
-
+        
         let minute = minutes + seconds/60
         let hour = hours + minutes/60
-        secondsView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*seconds/60.0))
-        minuteView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*minute/60.0))
-        hourView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2*hour/12.0))
+        clockView2.fiSeconds = CGFloat((Double.pi*2)*seconds/60.0)
+        clockView2.fiMinutes = CGFloat(Double.pi*2*minute/60.0)
+        clockView2.fiHours = CGFloat(Double.pi*2*hour/12.0)
+        clockView2.setNeedsDisplay()
     }
 }
 

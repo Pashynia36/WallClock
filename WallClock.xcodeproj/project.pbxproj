@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E2FC99C20774A3A005AEB40 /* ClockUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC99B20774A3A005AEB40 /* ClockUIView.swift */; };
+		4E2FC99E20777C54005AEB40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FC99D20777C54005AEB40 /* Main.storyboard */; };
 		4E8C78742074FC7800DE5D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8C78732074FC7800DE5D72 /* AppDelegate.swift */; };
 		4E8C78762074FC7800DE5D72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8C78752074FC7800DE5D72 /* ViewController.swift */; };
-		4E8C78792074FC7800DE5D72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8C78772074FC7800DE5D72 /* Main.storyboard */; };
 		4E8C787B2074FC7D00DE5D72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8C787A2074FC7D00DE5D72 /* Assets.xcassets */; };
 		4E8C787E2074FC7D00DE5D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8C787C2074FC7D00DE5D72 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E2FC99B20774A3A005AEB40 /* ClockUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockUIView.swift; sourceTree = "<group>"; };
+		4E2FC99D20777C54005AEB40 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4E8C78702074FC7800DE5D72 /* WallClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8C78732074FC7800DE5D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E8C78752074FC7800DE5D72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4E8C78782074FC7800DE5D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E8C787A2074FC7D00DE5D72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E8C787D2074FC7D00DE5D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E8C787F2074FC7D00DE5D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E2FC994207649A3005AEB40 /* Arrow */ = {
+			isa = PBXGroup;
+			children = (
+				4E2FC99B20774A3A005AEB40 /* ClockUIView.swift */,
+			);
+			path = Arrow;
+			sourceTree = "<group>";
+		};
 		4E8C78672074FC7800DE5D72 = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +66,8 @@
 			children = (
 				4E8C78732074FC7800DE5D72 /* AppDelegate.swift */,
 				4E8C78752074FC7800DE5D72 /* ViewController.swift */,
-				4E8C78772074FC7800DE5D72 /* Main.storyboard */,
+				4E2FC99D20777C54005AEB40 /* Main.storyboard */,
+				4E2FC994207649A3005AEB40 /* Arrow */,
 				4E8C787A2074FC7D00DE5D72 /* Assets.xcassets */,
 				4E8C787C2074FC7D00DE5D72 /* LaunchScreen.storyboard */,
 				4E8C787F2074FC7D00DE5D72 /* Info.plist */,
@@ -122,9 +133,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E2FC99E20777C54005AEB40 /* Main.storyboard in Resources */,
 				4E8C787E2074FC7D00DE5D72 /* LaunchScreen.storyboard in Resources */,
 				4E8C787B2074FC7D00DE5D72 /* Assets.xcassets in Resources */,
-				4E8C78792074FC7800DE5D72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,20 +148,13 @@
 			files = (
 				4E8C78762074FC7800DE5D72 /* ViewController.swift in Sources */,
 				4E8C78742074FC7800DE5D72 /* AppDelegate.swift in Sources */,
+				4E2FC99C20774A3A005AEB40 /* ClockUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4E8C78772074FC7800DE5D72 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E8C78782074FC7800DE5D72 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4E8C787C2074FC7D00DE5D72 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
