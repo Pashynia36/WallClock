@@ -18,16 +18,16 @@ class ClockUIView: UIView {
     override func draw(_ rect: CGRect) {
         
         super.draw(rect)
-        let center: CGPoint = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
         let path = UIBezierPath()
+        let center: CGPoint = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
         
+        path.lineWidth = 3.0
         radius = self.bounds.width / 3
         path.move(to: center)
         path.addLine(to: CGPoint(x: center.x + radius*sin(fiSeconds), y: center.y - radius*cos(fiSeconds)))
         
         radius = self.bounds.width / 3.5
         path.move(to: center)
-        path.lineWidth = 3.0
         path.addLine(to: CGPoint(x: center.x + radius*sin(fiMinutes), y: center.y - radius*cos(fiMinutes)))
         
         radius = self.bounds.width / 4.5
@@ -37,5 +37,10 @@ class ClockUIView: UIView {
         path.stroke()
 
         path.removeAllPoints()
+    }
+    
+    func addLineForClock(path: UIBezierPath, center: CGPoint, radius: CGFloat, fi: CGFloat) {
+        
+        path.addLine(to: CGPoint(x: center.x + radius*sin(fiHours), y: center.y - radius*cos(fiHours)))
     }
 }
