@@ -18,9 +18,15 @@ class ClockUIView: UIView {
     override func draw(_ rect: CGRect) {
         
         super.draw(rect)
-        let path = UIBezierPath()
-        let center: CGPoint = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
         
+        
+        let center: CGPoint = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
+        let framePath = UIBezierPath(ovalIn: rect)
+        framePath.lineWidth = 5
+        UIColor.black.set()
+        framePath.stroke()
+        
+        let path = UIBezierPath()
         path.lineWidth = 3.0
         radius = self.bounds.width / 3
         path.move(to: center)
@@ -35,12 +41,26 @@ class ClockUIView: UIView {
         path.addLine(to: CGPoint(x: center.x + radius*sin(fiHours), y: center.y - radius*cos(fiHours)))
         UIColor.gray.set()
         path.stroke()
-
+        
         path.removeAllPoints()
+        // func draws numbers every second
+        drawNumbers(rect)
     }
     
-    func addLineForClock(path: UIBezierPath, center: CGPoint, radius: CGFloat, fi: CGFloat) {
+    func drawNumbers(_ rect: CGRect) {
         
-        path.addLine(to: CGPoint(x: center.x + radius*sin(fiHours), y: center.y - radius*cos(fiHours)))
+        let center: CGPoint = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
+        let radius = self.bounds.width / 2 - 10
+        var positionX: Double = 0.0
+        var positionY: Double = 0.0
+        for i in 1...12 {
+            let number = String(i) as NSString
+            // size of string
+            let sizeOfString: CGSize = number.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14.0)])
+            positionX = Double(center.x + radius*CGFloat(sin(Double(i)*Double.pi/6)))
+            positionY = Double(center.y - radius*CGFloat(cos(Double(i)*Double.pi/6)))
+            let numberRect = CGRect(x: CGFloat(positionX) - sizeOfString.width / 2, y: CGFloat(positionY) - sizeOfString.height / 2, width: sizeOfString.width, height: 20)
+            number.draw(in: numberRect, withAttributes: nil)
+        }
     }
 }
