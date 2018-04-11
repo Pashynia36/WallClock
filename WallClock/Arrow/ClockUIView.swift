@@ -26,6 +26,10 @@ class ClockUIView: UIView {
         UIColor.black.set()
         framePath.stroke()
         
+        let clockPath = UIBezierPath(ovalIn: CGRect(x: 2, y: 2, width: rect.width - 4, height: rect.width - 4))
+        UIColor.init(red: 0.86, green: 0.7, blue: 0.13, alpha: 1.0).set()
+        clockPath.fill()
+        
         let path = UIBezierPath()
         path.lineWidth = 3.0
         radius = self.bounds.width / 3
