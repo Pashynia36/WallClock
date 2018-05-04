@@ -19,7 +19,6 @@ class ClockUIView: UIView {
         
         super.draw(rect)
         
-        
         let center: CGPoint = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
         let framePath = UIBezierPath(ovalIn: rect)
         framePath.lineWidth = 5
